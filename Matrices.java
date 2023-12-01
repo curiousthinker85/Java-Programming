@@ -81,6 +81,24 @@ public class Matrices {
         return sum;
     }
 
+    public static boolean staircaseSearch(int matrix[][], int key){
+        int row = 0, col = matrix[0].length - 1;
+        while(row<matrix.length && col>=0){
+            if(matrix[row][col] == key){
+                System.out.println("key found at (" + row + "," + col + ")");
+                return true;
+            }
+            else if(key < matrix[row][col]){
+                col--;
+            }
+            else{
+                row++;
+            }
+        }
+        System.out.println(" key not found");
+        return false;
+    }
+
     public static void main(String[] args) {
         // int matrix[][] = new int[3][3];
         // int n = matrix.length, m = matrix[0].length;
@@ -102,12 +120,21 @@ public class Matrices {
 
         // search(matrix, 0); 
 
-        int matrix[][] = {{1,2,3,4},
-                          {5,6,7,8},
-                        {9,10,11,12},
-                        {13,14,15,16}};
+        // int matrix[][] = {{1,2,3,4},
+        //                   {5,6,7,8},
+        //                 {9,10,11,12},
+        //                 {13,14,15,16}};
 
         // printSpiral(matrix);
-        System.out.println(diagonalSum(matrix));
+        // System.out.println(diagonalSum(matrix));
+
+        int matrix[][] = {{10,20,30,40},
+                          {15,25,35,45},
+                          {27,29,37,48},
+                          {32,33,39,50}};
+
+        int key = 33;
+
+        staircaseSearch(matrix, key);
     }
 }
